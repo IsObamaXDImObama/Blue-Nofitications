@@ -1,17 +1,15 @@
+local NofiticationB = Instance.new("ScreenGui")
+NofiticationB.Name = "NofiticationB"
+NofiticationB.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+NofiticationB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
 function CreateNofitication(toptextn, desctextn, lengthtime, toptextfont, descriptionfont, toptextcolor, descriptioncolor)
-	local NofiticationB = Instance.new("ScreenGui")
 	local NOfF = Instance.new("Frame")
 	local NofiticationFrame = Instance.new("Frame")
 	local TopText = Instance.new("TextLabel")
 	local DescriptionText = Instance.new("TextLabel")
 	local ImageLabel = Instance.new("ImageLabel")
 	local NofUIGridLayout = Instance.new("UIGridLayout")
-
-	--Properties:
-
-	NofiticationB.Name = "NofiticationB"
-	NofiticationB.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-	NofiticationB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	NOfF.Name = "NOfF"
 	NOfF.Parent = NofiticationB
