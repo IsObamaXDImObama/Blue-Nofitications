@@ -1,72 +1,87 @@
+
 local NofiticationB = Instance.new("ScreenGui")
 NofiticationB.Name = "NofiticationB"
 NofiticationB.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 NofiticationB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+local SANS = Instance.new("Frame")
+SANS.Name = "SANS"
+SANS.Parent = NofiticationB
+SANS.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SANS.BackgroundTransparency = 1.000
+SANS.BorderSizePixel = 0
+SANS.Position = UDim2.new(0.826086938, 0, 0, 0)
+SANS.Size = UDim2.new(0.110901073, 100, 1, 0)
 
-function CreateNofitication(toptextn, desctextn, lengthtime, toptextfont, descriptionfont, toptextcolor, descriptioncolor)
-	local NOfF = Instance.new("Frame")
+function CreateSansNof(toptext, bottomtext)
 	local NofiticationFrame = Instance.new("Frame")
+	local Frame = Instance.new("Frame")
+	local ImageLabel = Instance.new("ImageLabel")
 	local TopText = Instance.new("TextLabel")
 	local DescriptionText = Instance.new("TextLabel")
-	local ImageLabel = Instance.new("ImageLabel")
 	local NofUIGridLayout = Instance.new("UIGridLayout")
 
-	NOfF.Name = "NOfF"
-	NOfF.Parent = NofiticationB
-	NOfF.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	NOfF.BackgroundTransparency = 0.900
-	NOfF.BorderSizePixel = 0
-	NOfF.Position = UDim2.new(0.826086938, 0, 0, 0)
-	NOfF.Size = UDim2.new(0.110901073, 100, 1, 0)
-
 	NofiticationFrame.Name = "NofiticationFrame"
-	NofiticationFrame.Parent = NOfF
+	NofiticationFrame.Parent = SANS
 	NofiticationFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	NofiticationFrame.BackgroundTransparency = 1.000
 	NofiticationFrame.BorderSizePixel = 0
 	NofiticationFrame.Position = UDim2.new(-1.31159425, 0, 0.160905838, 0)
 	NofiticationFrame.Size = UDim2.new(0, 385, 0, 80)
 
-	TopText.Name = "TopText"
-	TopText.Parent = NofiticationFrame
-	TopText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TopText.BackgroundTransparency = 1.000
-	TopText.BorderSizePixel = 0
-	TopText.Size = UDim2.new(0, 385, 0, 25)
-	TopText.Font = toptextfont or Enum.Font.GothamBold
-	TopText.Text = toptextn or "New Top Text"
-	TopText.TextColor3 = toptextcolor or Color3.fromRGB(117, 135, 255)
-	TopText.TextSize = 14.000
-	TopText.TextXAlignment = Enum.TextXAlignment.Left
+	Frame.Parent = NofiticationFrame
+	Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Frame.BorderSizePixel = 0
+	Frame.Position = UDim2.new(1, 0, -0.00159415603, 0)
+	Frame.Size = UDim2.new(0, 385, 0, 80)
+	Frame.ZIndex = 2
 
-	DescriptionText.Name = "DescriptionText"
-	DescriptionText.Parent = NofiticationFrame
-	DescriptionText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	DescriptionText.BackgroundTransparency = 1.000
-	DescriptionText.BorderSizePixel = 0
-	DescriptionText.Position = UDim2.new(0, 0, 0.3125, 0)
-	DescriptionText.Size = UDim2.new(0, 385, 0, 55)
-	DescriptionText.Font = descriptionfont or Enum.Font.GothamSemibold
-	DescriptionText.Text = desctextn or "Mew Description Text"
-	DescriptionText.TextColor3 = descriptioncolor or Color3.fromRGB(217, 217, 217)
-	DescriptionText.TextSize = 12.000
-	DescriptionText.TextXAlignment = Enum.TextXAlignment.Left
-	DescriptionText.TextYAlignment = Enum.TextYAlignment.Top
-
-	ImageLabel.Parent = NofiticationFrame
+	ImageLabel.Parent = Frame
 	ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	ImageLabel.BackgroundTransparency = 1.000
 	ImageLabel.BorderSizePixel = 0
 	ImageLabel.Position = UDim2.new(0, 0, -0.0625, 0)
 	ImageLabel.Size = UDim2.new(0, 385, 0, 5)
+	ImageLabel.ZIndex = 3
 	ImageLabel.Image = "rbxassetid://7549716848"
 
+	TopText.Name = "TopText"
+	TopText.Parent = Frame
+	TopText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TopText.BackgroundTransparency = 1.000
+	TopText.BorderSizePixel = 0
+	TopText.Size = UDim2.new(0, 385, 0, 25)
+	TopText.ZIndex = 3
+	TopText.Font = Enum.Font.GothamBold
+	TopText.Text = toptext or "Top"
+	TopText.TextColor3 = Color3.fromRGB(117, 135, 255)
+	TopText.TextSize = 14.000
+	TopText.TextXAlignment = Enum.TextXAlignment.Left
+
+	DescriptionText.Name = "DescriptionText"
+	DescriptionText.Parent = Frame
+	DescriptionText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	DescriptionText.BackgroundTransparency = 1.000
+	DescriptionText.BorderSizePixel = 0
+	DescriptionText.Position = UDim2.new(0, 0, 0.3125, 0)
+	DescriptionText.Size = UDim2.new(0, 385, 0, 55)
+	DescriptionText.ZIndex = 3
+	DescriptionText.Font = Enum.Font.GothamSemibold
+	DescriptionText.Text = bottomtext or "Bottom"
+	DescriptionText.TextColor3 = Color3.fromRGB(217, 217, 217)
+	DescriptionText.TextSize = 12.000
+	DescriptionText.TextXAlignment = Enum.TextXAlignment.Left
+	DescriptionText.TextYAlignment = Enum.TextYAlignment.Top
+
 	NofUIGridLayout.Name = "NofUIGridLayout"
-	NofUIGridLayout.Parent = NOfF
+	NofUIGridLayout.Parent = SANS
+	NofUIGridLayout.FillDirection = Enum.FillDirection.Vertical
 	NofUIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	NofUIGridLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
 	NofUIGridLayout.CellSize = UDim2.new(0, 385, 0, 80)
-	
-	wait(lengthtime)
-	
+	NofUIGridLayout.FillDirectionMaxCells = 3
+	Frame:TweenPosition(UDim2.new(-0.00250339508, 0, -0.00159415603, 0),"InOut","Quad",0.5,true)
+	wait(3)
 	NofiticationB:Destroy()
 end
+
+CreateSansNof("toptext", "bottomtext")
