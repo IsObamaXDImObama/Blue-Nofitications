@@ -67,4 +67,8 @@ function CreateNofitication(toptextn, desctextn, lengthtime, toptextfont, descri
 	NofUIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	NofUIGridLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
 	NofUIGridLayout.CellSize = UDim2.new(0, 385, 0, 80)
+	
+	wait(lengthtime)
+	
+	NofiticationB:Destroy()
 end
